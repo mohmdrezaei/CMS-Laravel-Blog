@@ -1,6 +1,6 @@
 @extends('layouts.panel')
 @section('title')
-    - مدیریت نظرات
+    - Comments Management
 @endsection
 @section('styles')
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
@@ -8,16 +8,16 @@
 @section('content')
     <div class="breadcrumb">
         <ul>
-            <li><a href="{{route('dashboard')}}">پیشخوان</a></li>
-            <li><a href="{{route('comments.index')}}" class="is-active"> نظرات</a></li>
+            <li><a href="{{route('dashboard')}}">dashboard</a></li>
+            <li><a href="{{route('comments.index')}}" class="is-active"> comments</a></li>
         </ul>
     </div>
     <div class="main-content">
         <div class="tab__box">
             <div class="tab__items">
-                <a class="tab__item is-active" href="{{route('comments.index')}}"> همه نظرات</a>
-                <a class="tab__item " href="{{route('comments.index',['status'=>0])}}">نظرات تاییده نشده</a>
-                <a class="tab__item " href="{{route('comments.index',['status'=>1])}}">نظرات تاییده شده</a>
+                <a class="tab__item is-active" href="{{route('comments.index')}}"> All Comments</a>
+                <a class="tab__item " href="{{route('comments.index',['status'=>0])}}">UnApproved comments</a>
+                <a class="tab__item " href="{{route('comments.index',['status'=>1])}}">Approved comments</a>
             </div>
         </div>
 
@@ -26,14 +26,14 @@
             <table class="table">
                 <thead role="rowgroup">
                 <tr role="row" class="title-row">
-                    <th>شناسه</th>
-                    <th>ارسال کننده</th>
-                    <th>برای</th>
-                    <th>دیدگاه</th>
-                    <th>تاریخ</th>
-                    <th>تعداد پاسخ ها</th>
-                    <th>وضعیت</th>
-                    <th>عملیات</th>
+                    <th>Id</th>
+                    <th>Sender</th>
+                    <th>For</th>
+                    <th>Comment</th>
+                    <th>Date</th>
+                    <th>Number of replies</th>
+                    <th>Status</th>
+                    <th>Operation</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,9 +43,9 @@
                         <td>{{$comment->user->name}}</td>
                         <td> {{$comment->post->title}}</td>
                         <td>{{$comment->content}}</td>
-                        <td>{{$comment->getCreatedAtJalali()}}</td>
+                        <td>{{$comment->created_at->format('Y-m-d')}}</td>
                         <td>{{$comment->replies_count}}</td>
-                        <td class="{{$comment->status ? 'text-success' : 'text-error'}}">{{$comment->getStatusInFarsi()}}</td>
+                        <td class="{{$comment->status ? 'text-success' : 'text-error'}}">{{$comment->getStatus()}}</td>
                         <td>
                             <a href="{{route('comments.destroy',$comment->id)}}"
                                onclick="deleteComment(event,{{$comment->id}})" class="item-delete mlg-15" title="حذف"><i

@@ -2,6 +2,9 @@
 @section("content")
     <main>
         <article class="container article">
+            @if(isset($categoryName))
+                <h3 class="margin-bottom-25">Posts in {{$categoryName}} category</h3>
+            @endif
             <div class="articles " >
                 @forelse($posts as $post)
                 <div class="articles__item">

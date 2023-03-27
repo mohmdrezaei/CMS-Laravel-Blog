@@ -45,12 +45,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getRoleInFarsi()
-    {
-        if ($this->role === 'user') return 'کاربر عادی';
-        if ($this->role === 'admin') return 'مدیر';
-        if ($this->role === 'author') return 'نویسنده';
-    }
+
 
     public function getCreatedAtJalali()
     {

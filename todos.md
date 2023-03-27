@@ -1,17 +1,16 @@
 # features
-- احراز هویت
-  - پکیج 
+- Authentication
     - breeze
-  - ثبت نام
-  - ورود
-- نقش کاربران
-- مدیریت کاربران
-- مدیریت دسته بندی ها
-- مدیریت نوشته ها
-- مدیریت نظرات
-- ویرایش پروفایل
-- نمایش پست ها در صفحه اصلی
-- پیدا کردن پست ها بر اساس دسته بندی
-- سرچ بین پست ها
-- نمایش پست
-  - نمایش نظرات پست
+  - Register
+  - Login
+- Users role
+- Users Management
+- Categories Management
+- Posts Management
+- Comments Management
+- Edit user information
+- Show posts on the main page
+- Display posts by category
+- Search posts by title and content
+- Show post
+  - View post comments

@@ -1,12 +1,12 @@
 @extends('layouts.panel')
 @section('title')
-    - اطلاعات کاربری
+    - User information
 @endsection
 @section('content')
     <div class="breadcrumb">
         <ul>
-            <li><a href="{{route('dashboard')}}">پیشخوان</a></li>
-            <li><a href="{{route('profile')}}" class="is-active">اطلاعات کاربری</a></li>
+            <li><a href="{{route('dashboard')}}">dashboard</a></li>
+            <li><a href="{{route('profile')}}" class="is-active">user information</a></li>
         </ul>
     </div>
     <div class="main-content  ">
@@ -20,33 +20,32 @@
                         <div class="v-dialog__container" style="display: block;"></div>
                         <div class="box__camera default__avatar"></div>
                     </div>
-                    <span class="profile__name">کاربر : {{auth()->user()->name}}</span>
+                    <span class="profile__name">User : {{auth()->user()->name}}</span>
                     @error('profile')
                     <p class="alert-error">{{$message}}</p>
                     @enderror
 
                 </div>
-                <input class="text" type="text" name="name" placeholder="نام کاربری" value="{{auth()->user()->name}}">
+                <input class="text" type="text" name="name" placeholder="Username" value="{{auth()->user()->name}}">
                 @error('name')
                 <p class="alert-error">{{$message}}</p>
                 @enderror
-                <input class="text text-left" type="text" name="phone" placeholder="تلفن همراه" value="{{auth()->user()->phone}}">
+                <input class="text text-left" type="text" name="phone" placeholder="phone number" value="{{auth()->user()->phone}}">
                 @error('phone')
                 <p class="alert-error">{{$message}}</p>
                 @enderror
-                <input class="text text-left" type="email" name="email" placeholder="ایمیل" value="{{auth()->user()->email}}">
+                <input class="text text-left" type="email" name="email" placeholder="Email" value="{{auth()->user()->email}}">
                 @error('email')
                 <p class="alert-error">{{$message}}</p>
                 @enderror
-                <input class="text text-left" type="password" name="password" placeholder="رمز عبور">
+                <input class="text " type="password" name="password" placeholder="Password">
                 @error('password')
                 <p class="alert-error">{{$message}}</p>
                 @enderror
-                <p class="rules">رمز عبور باید حداقل ۶ کاراکتر و ترکیبی از حروف بزرگ، حروف کوچک، اعداد و کاراکترهای
-                    غیر الفبا مانند <strong>!@#$%^&*()</strong> باشد.</p>
+                <p class="rules">The password must be at least 6 characters long and a combination of uppercase letters, lowercase letters, numbers, and non-alphabetic characters such as <strong>!@#$%^&*()</strong>.
                 <br>
                 <br>
-                <button class="btn btn-webamooz_net">ذخیره تغییرات</button>
+                <button class="btn btn-webamooz_net">Save changes</button>
             </form>
         </div>
 

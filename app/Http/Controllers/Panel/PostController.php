@@ -26,7 +26,8 @@ class PostController extends Controller
               $postsQuery->where('title','LIKE',"%{$request->search}%");
             }
             $posts =$postsQuery->paginate();
-        }
+
+                   }
         return view('panel.posts.index',compact('posts'));
     }
 

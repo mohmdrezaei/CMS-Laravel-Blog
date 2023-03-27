@@ -8,8 +8,8 @@
             <article class="single-page">
                 <div class="breadcrumb">
                     <ul class="breadcrumb__ul">
-                        <li class="breadcrumb__item"><a href="{{route('index')}}" class="breadcrumb__link" title="خانه">بخش مقالات</a></li>
-                        <li class="breadcrumb__item"><a href="{{route('post.show',$post->slug)}}" class="breadcrumb__link" title="فریم ورک لاراول چیست ؟‌">{{$post->title}}</a></li>
+                        <li class="breadcrumb__item"><a href="{{route('index')}}" class="breadcrumb__link" title="خانه">Articles section</a></li>
+                        <li class="breadcrumb__item"><a href="{{route('post.show',$post->slug)}}" class="breadcrumb__link" title="{{$post->slug}}">{{$post->title}}</a></li>
                     </ul>
                 </div>
                 <div class="single-page__title">
@@ -23,7 +23,7 @@
                 <div class="single-page__img">
                     <img class="single-page__img-src" src="{{$post->getBannerUrl()}}" alt="">
                 </div>
-                <div class="single-page__content" style="margin-bottom: 30px">
+                <div class="single-page__content " style="margin-bottom: 30px;margin-top: 30px">
                         {!! $post->description !!}
 
                 </div>
@@ -42,20 +42,20 @@
                 @auth
                 <div class="comments__send">
                     <div class="comments__title">
-                        <h3 class="comments__h3"> دیدگاه خود را بنویسید </h3>
-                        <span class="comments__count">  نظرات ( {{$post->comments_count}} ) </span>
+                        <h3 class="comments__h3">Write your opinion </h3>
+                        <span class="comments__count"> Comments ( {{$post->comments_count}} ) </span>
                     </div>
                     <form action="{{route('comment.store')}}" method="post">
                         @csrf
                         <input type="hidden" id="reply_comment" name="comment_id" value="">
                         <input type="hidden" name="post_id" value="{{$post->id}}">
-                    <textarea class="comments__textarea" name="content" placeholder="بنویسید"></textarea>
-                    <button  type="submit" class="btn btn--blue btn--shadow-blue">ارسال نظر</button>
-                    <button type="reset" class="btn btn--red btn--shadow-red">انصراف</button>
+                    <textarea class="comments__textarea" name="content" placeholder="Write..."></textarea>
+                    <button  type="submit" class="btn btn--blue btn--shadow-blue">Send</button>
+                    <button type="reset" class="btn btn--red btn--shadow-red">Cancel</button>
                     </form>
                 </div>
                 @else
-                    <h3 class="comments__h3">برای ارسال نظر ابتدا باید وارد سایت شوید</h3>
+                    <h3 class="comments__h3">You must sign in to send comment</h3>
                 @endauth
                 <div class="comments__list">
                     @foreach($post->comments as $comment)

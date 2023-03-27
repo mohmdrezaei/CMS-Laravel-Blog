@@ -34,13 +34,10 @@ class Comment extends Model
     {
         return $this->replies()->where('status',true);
     }
-    public function getCreatedAtJalali()
-    {
-        return jdate($this->created_at)->format('Y/m/d');
-    }
 
-    public function getStatusInFarsi()
+
+    public function getStatus()
     {
-        return !! $this->status ? "تایید شده" : "تایید نشده";
+        return !! $this->status ? "Approved" : "UnApproved";
     }
 }

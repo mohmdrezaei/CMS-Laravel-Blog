@@ -1,6 +1,6 @@
 @extends('layouts.panel')
 @section('title')
-    - مدیریت مقالات
+    - Articles Management
 @endsection
 @section('styles')
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
@@ -8,30 +8,25 @@
 @section('content')
     <div class="breadcrumb">
         <ul>
-            <li><a href="{{route('dashboard')}}">پیشخوان</a></li>
-            <li><a href="{{route('posts.index')}}" class="is-active"> مقالات</a></li>
+            <li><a href="{{route('dashboard')}}">dashboard</a></li>
+            <li><a href="{{route('posts.index')}}" class="is-active"> articles</a></li>
         </ul>
     </div>
     <div class="main-content">
         <div class="tab__box">
             <div class="tab__items">
-                <a class="tab__item is-active" href="{{route('posts.index')}}">لیست مقالات</a>
-                <a class="tab__item " href="{{route('posts.create')}}">ایجاد مقاله جدید</a>
+                <a class="tab__item is-active" href="{{route('posts.index')}}">Articles</a>
+                <a class="tab__item " href="{{route('posts.create')}}">Create a New Article</a>
             </div>
         </div>
         <div class="bg-white padding-20">
-            <div class="t-header-search">
+
                 <form action="{{route('posts.index')}}" >
-                    <div class="t-header-searchbox font-size-13">
-                        <div  class="text search-input__box font-size-13">جستجوی مقاله
-                            <div class="t-header-search-content ">
-                                <input type="text" name="search" class="text" placeholder="نام مقاله">
-                                <button type="submit" class="btn btn-webamooz_net">جستجو</button>
-                            </div>
-                        </div>
+                    <div class=" font-size-13">
+                                <input type="text" name="search" class="text" placeholder="Article name" value="{{request('search')}}">
+                                <button type="submit" class="btn btn-webamooz_net">Search</button>
                     </div>
                 </form>
-            </div>
         </div>
 
         <div class="table__box">
@@ -39,11 +34,11 @@
 
                 <thead role="rowgroup">
                 <tr role="row" class="title-row">
-                    <th>شناسه</th>
-                    <th>عنوان</th>
-                    <th>نویسنده</th>
-                    <th>تاریخ ایجاد</th>
-                    <th>عملیات</th>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th> creation date</th>
+                    <th>operation</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -54,8 +49,8 @@
                         <td>{{$post->user->name}}</td>
                         <td>{{$post->created_at->format('Y-m-d')}}</td>
                         <td>
-                            <a href="{{route('posts.destroy',$post->slug)}}" class="item-delete mlg-15" title="حذف" onclick="destroyPost(event,{{$post->id}})"><i class="fas fa-trash-alt fa-lg"></i></a>
-                            <a href="{{route('posts.edit',$post->slug)}}" class="item-edit " title="ویرایش"><i class="fas fa-edit fa-lg"></i></a>
+                            <a href="{{route('posts.destroy',$post->slug)}}" class="item-delete mlg-15" title="Delete" onclick="destroyPost(event,{{$post->id}})"><i class="fas fa-trash-alt fa-lg"></i></a>
+                            <a href="{{route('posts.edit',$post->slug)}}" class="item-edit " title="Edit"><i class="fas fa-edit fa-lg"></i></a>
                             <form action="{{route('posts.destroy',$post->slug)}}" method="POST" id="delete-post-{{$post->id}}">
                                 @csrf
                                 @method('DELETE')
@@ -77,13 +72,13 @@
         {
             event.preventDefault();
             Swal.fire({
-                title: 'آیا مطمئن به حذف مقاله هستید ؟',
+                title: 'Are you sure to delete the article?',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d33',
                 cancelButtonColor: '#3085d6',
-                confirmButtonText: 'بله. حذف کن!',
-                cancelButtonText: 'لغو'
+                confirmButtonText: 'Yes.Delete it',
+                cancelButtonText: 'Cancel'
             }).then((result) => {
                 if (result.isConfirmed) {
                     document.getElementById(`delete-post-${id}`).submit()

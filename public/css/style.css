@@ -262,14 +262,14 @@ textarea {
 }
 
 .c-header__button-search::before {
-    content: '\e089';
+
     font-size: 22px;
     color: #474747;
     cursor: pointer;
 }
 
 .c-header__button-nav::before {
-    content: '\e086';
+
     font-size: 22px;
     color: #474747;
     cursor: pointer;
@@ -365,7 +365,7 @@ textarea {
 }
 
 .nav__item:first-child {
-    padding-right: unset !important;
+    padding-left: unset !important;
 }
 
 .nav__link {
@@ -399,9 +399,11 @@ textarea {
 .nav__sub .nav__link {
     padding: 0 20px;
 }
-
+.nav__link{
+    margin-left: 10px;
+}
 .nav__sub .nav__link:first-child {
-    padding-right: 0 !important;
+    padding-left: 0 !important;
 }
 
 .nav__item--has-sub::before {
@@ -758,6 +760,7 @@ textarea {
 .comments__count {
     font-size: 15px;
     color: #6b7074;
+    margin-left: 10px;
 }
 
 .comments__textarea {
@@ -829,7 +832,7 @@ textarea {
 
 .comments__details {
     color: #6c757d;
-    margin-right: 20px;
+    margin-left: 20px;
     margin-top: 4px;
     line-height: 1.7;
 }
@@ -862,8 +865,8 @@ textarea {
 }
 
 .comments__subset {
-    margin-right: 40px;
-    border-right: 3px solid #3bcea2;
+    margin-left: 40px;
+    border-left: 3px solid #3bcea2;
 }
 
 .scroll-top {

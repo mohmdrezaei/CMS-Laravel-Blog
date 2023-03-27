@@ -2,7 +2,7 @@
 
     <div class="pagination">
         @if (!$paginator->onFirstPage())
-            <a href="{{ $paginator->previousPageUrl() }}" class="pagination__page pagination__page--prev"><i class="fas fa-angle-right"></i></a>
+            <a href="{{ $paginator->previousPageUrl() }}" class="pagination__page pagination__page--prev text-center "><i class="fas fa-angle-left"></i></a>
         @endif
         @foreach ($elements as $element)
             {{-- "Three Dots" Separator --}}
@@ -17,10 +17,10 @@
                 @foreach ($element as $page => $url)
                     @if ($page == $paginator->currentPage())
                         <span aria-current="page">
-                            <span class="pagination__page pagination__page--current">{{ $page }}</span>
+                            <span class="pagination__page pagination__page--current text-center">{{ $page }}</span>
                         </span>
                     @else
-                        <a href="{{ $url }}" class="pagination__page    " aria-label="{{ __('Go to page :page', ['page' => $page]) }}">
+                        <a href="{{ $url }}" class="pagination__page  text-center  " aria-label="{{ __('Go to page :page', ['page' => $page]) }}">
                             {{ $page }}
                         </a>
                     @endif
@@ -28,7 +28,7 @@
             @endif
         @endforeach
         @if ($paginator->hasMorePages())
-                <a href="{{ $paginator->nextPageUrl() }}" class="pagination__page pagination__page--next"><i class="fas fa-angle-left"></i></a>
+                <a href="{{ $paginator->nextPageUrl() }}" class="pagination__page pagination__page--next text-center"><i class="fas fa-angle-right"></i></a>
         @endif
     </div>
 @endif

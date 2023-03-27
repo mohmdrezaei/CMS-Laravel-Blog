@@ -3,9 +3,9 @@
 
     <div class="container">
         <div class="footer__links">
-            <a href="" class="footer__link">لینک اول</a>
-            <a href="" class="footer__link">لینک اول</a>
-            <a href="" class="footer__link">لینک اول</a>
+            <a href="" class="footer__link">Home</a>
+            <a href="" class="footer__link">Contact Us</a>
+            <a href="" class="footer__link">About us</a>
             <a href="" class="footer__link">لینک اول</a>
             <a href="" class="footer__link">لینک اول</a>
             <a href="" class="footer__link">لینک اول</a>

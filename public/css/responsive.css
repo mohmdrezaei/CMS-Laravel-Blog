@@ -198,6 +198,9 @@
     .sign-page__form{
         max-width: 100% !important;
     }
+    .logo__img{
+        margin-left: 50px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -210,7 +213,8 @@
     }
 
     .comments__subset {
-        margin-right: 20px;
+        margin-left: 20px;
 
     }
+
 }

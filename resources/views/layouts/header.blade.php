@@ -2,6 +2,11 @@
     <div class="container container--responsive container--white">
         <div class="c-header__row ">
             <div class="c-header__right">
+                <div class="c-header__icons">
+                    <div class="c-header__button-nav"><img src="{{asset('/img/menu (1).png')}}" alt=""></div>
+                    <div class="c-header__button-search "> <img style="margin-left: 10px" src="{{asset('/img/search-interface-symbol.png')}}" alt=""></div>
+
+                </div>
                 <div class="logo">
                     <a href="{{route('index')}}" class="logo__img"></a>
                 </div>
@@ -14,10 +19,7 @@
 
             </div>
             <div class="c-header__left">
-                <div class="c-header__icons">
-                    <div class="c-header__button-search "></div>
-                    <div class="c-header__button-nav"></div>
-                </div>
+
                 @guest
                     <div class="c-button__login-regsiter">
                         <div><a class="c-button__link c-button--register" href="{{route('register')}}"> Sign up</a></div>
@@ -46,8 +48,8 @@
     </div>
     <nav class="nav" id="nav">
         <div class="c-button__login-regsiter d-none">
-            <div><a class="c-button__link c-button--register" href="{{route('register')}}"> Register</a></div>
-            <div><a class="c-button__link c-button--login" href="{{route('login')}}">Login</a></div>
+            <div><a class="c-button__link c-button--register" href="{{route('register')}}"> Sign up</a></div>
+            <div><a class="c-button__link c-button--login" href="{{route('login')}}">Sign in</a></div>
         </div>
         <div class="container container--nav">
             <ul class="nav__ul">

@@ -9,7 +9,8 @@ class ShowPostCategoryController extends Controller
 {
     public function show(Category $category)
     {
+        $categoryName = $category->name;
         $posts=$category->posts()->paginate(3);
-        return view('index',compact('posts'));
+        return view('index',compact('posts','categoryName'));
     }
 }
